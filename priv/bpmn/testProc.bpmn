@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0hdf6w2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="11.1.0">
+  <bpmn:process id="Test.Proc" isExecutable="false">
+    <bpmn:startEvent id="Created">
+      <bpmn:outgoing>sf_Created_Test1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Test1" name="Тест 1">
+      <bpmn:incoming>sf_Created_Test1</bpmn:incoming>
+      <bpmn:outgoing>sf_Test1_Test2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="sf_Created_Test1" sourceRef="Created" targetRef="Test1" />
+    <bpmn:task id="Test2" name="Тест 2">
+      <bpmn:incoming>sf_Test1_Test2</bpmn:incoming>
+      <bpmn:outgoing>sf_Test2_Test3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="sf_Test1_Test2" sourceRef="Test1" targetRef="Test2" />
+    <bpmn:task id="Test3" name="Тест 3">
+      <bpmn:incoming>sf_Test2_Test3</bpmn:incoming>
+      <bpmn:outgoing>sf_Test3_Final</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="sf_Test2_Test3" sourceRef="Test2" targetRef="Test3" />
+    <bpmn:endEvent id="Final">
+      <bpmn:incoming>sf_Test3_Final</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="sf_Test3_Final" sourceRef="Test3" targetRef="Final" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Test.Proc">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="Created">
+        <dc:Bounds x="156" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Test1_di" bpmnElement="Test1">
+        <dc:Bounds x="250" y="60" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Test2_di" bpmnElement="Test2">
+        <dc:Bounds x="410" y="60" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Test3_di" bpmnElement="Test3">
+        <dc:Bounds x="570" y="60" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Final_di" bpmnElement="Final">
+        <dc:Bounds x="732" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="sf_Created_Test1_di" bpmnElement="sf_Created_Test1">
+        <di:waypoint x="192" y="100" />
+        <di:waypoint x="250" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sf_Test1_Test2_di" bpmnElement="sf_Test1_Test2">
+        <di:waypoint x="350" y="100" />
+        <di:waypoint x="410" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sf_Test2_Test3_di" bpmnElement="sf_Test2_Test3">
+        <di:waypoint x="510" y="100" />
+        <di:waypoint x="570" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sf_Test3_Final_di" bpmnElement="sf_Test3_Final">
+        <di:waypoint x="670" y="100" />
+        <di:waypoint x="732" y="100" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
